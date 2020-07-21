@@ -1483,6 +1483,8 @@ drwxr-xr-x 83 root root  4096 Jul 21 18:41 share
 ```
 source /opt/ros/melodic/setup.bash
 ```
+#
+#
 #### FOOBAR_Error below --- cant create the CATKIN DIR -- catkin_ws --- within the Current Working DIR , as then the command -- catkin_make .. will fail ... 
 
 ```
@@ -1533,6 +1535,7 @@ E: Unable to correct problems, you have held broken packages.
 (base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101/catkin_ws$ 
 (base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101/catkin_ws$ 
 ```
+#
 
 #### Thus following the tutorial --- made the CATKIN DIR within the HOME DIR 
 
@@ -1607,10 +1610,142 @@ drwxr-xr-x 2 dhankar dhankar 4096 Jul 21 20:10 src
 drwxr-xr-x 3 dhankar dhankar 4096 Jul 21 20:10 devel
 drwxr-xr-x 8 dhankar dhankar 4096 Jul 21 20:10 build
 (base) dhankar@dhankar-1:~/catkin_ws$ 
-(base) dhankar@dhankar-1:~/catkin_ws$ 
-
 
 ```
+#
+#
+
+```
+(base) dhankar@dhankar-1:~/catkin_ws$ 
+(base) dhankar@dhankar-1:~/catkin_ws$ cd devel/
+(base) dhankar@dhankar-1:~/catkin_ws/devel$ ls -ltr
+total 48
+-rw-r--r-- 1 dhankar dhankar   270 Jul 21 20:10 setup.zsh
+-rwxr-xr-x 1 dhankar dhankar 13311 Jul 21 20:10 _setup_util.py
+-rw-r--r-- 1 dhankar dhankar  2787 Jul 21 20:10 setup.sh
+-rw-r--r-- 1 dhankar dhankar   260 Jul 21 20:10 setup.bash
+-rw-r--r-- 1 dhankar dhankar   293 Jul 21 20:10 local_setup.zsh
+-rw-r--r-- 1 dhankar dhankar   360 Jul 21 20:10 local_setup.sh
+-rw-r--r-- 1 dhankar dhankar   283 Jul 21 20:10 local_setup.bash
+-rwxr-xr-x 1 dhankar dhankar   506 Jul 21 20:10 env.sh
+-rw-r--r-- 1 dhankar dhankar     0 Jul 21 20:10 cmake.lock
+drwxr-xr-x 2 dhankar dhankar  4096 Jul 21 20:10 lib
+(base) dhankar@dhankar-1:~/catkin_ws/devel$ 
+
+```
+#
+#
+```
+(base) dhankar@dhankar-1:~/catkin_ws$ 
+(base) dhankar@dhankar-1:~/catkin_ws$ echo $ROS_PACKAGE_PATH
+/home/dhankar/catkin_ws/src:/opt/ros/melodic/share
+(base) dhankar@dhankar-1:~/catkin_ws$ # Yes the ECHOing of the PATH confirms that the CURRENT DIR is included in the 
+(base) dhankar@dhankar-1:~/catkin_ws$ # ROS_PACKAGE_PATH
+(base) dhankar@dhankar-1:~/catkin_ws$ 
+
+```
+#
+#
+```
+sudo apt-get install ros-melodic-ros-tutorials
+#
+
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones$ sudo apt-get install ros-melodic-ros-tutorials
+[sudo] password for dhankar: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  efibootmgr fonts-wine gconf-service gconf-service-backend gconf2 gconf2-common gir1.2-geocodeglib-1.0 libappindicator1 libavdevice57
+  libfwup1 libgconf-2-4 libgeos-3.6.2 libgeotiff2 libindicator7 libllvm8 libllvm8:i386 libllvm9 libllvm9:i386 liblo7 libmxml-bin libmxml-dev
+  libmxml1 libproj12 libproj13 libqgis-3d3.12.3 libqgis-analysis3.12.3 libqgis-app3.12.3 libqgis-core3.12.3 libqgis-gui3.12.3
+  libqgis-native3.12.3 libqgis-server3.12.3 libqgisgrass7-3.12.3 libqgispython3.12.3 libwine:i386 ubuntu-web-launchers wine32:i386
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  ros-melodic-roscpp-tutorials ros-melodic-rospy-tutorials ros-melodic-turtlesim
+The following NEW packages will be installed:
+  ros-melodic-ros-tutorials ros-melodic-roscpp-tutorials ros-melodic-rospy-tutorials ros-melodic-turtlesim
+0 upgraded, 4 newly installed, 0 to remove and 21 not upgraded.
+Need to get 398 kB of archives.
+After this operation, 2,576 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://packages.ros.org/ros/ubuntu bionic/main amd64 ros-melodic-roscpp-tutorials amd64 0.9.2-1bionic.20200530.015711 [148 kB]
+Get:2 http://packages.ros.org/ros/ubuntu bionic/main amd64 ros-melodic-rospy-tutorials amd64 0.9.2-1bionic.20200530.025151 [30.1 kB]
+Get:3 http://packages.ros.org/ros/ubuntu bionic/main amd64 ros-melodic-turtlesim amd64 0.9.2-1bionic.20200530.020039 [217 kB]
+Get:4 http://packages.ros.org/ros/ubuntu bionic/main amd64 ros-melodic-ros-tutorials amd64 0.9.2-1bionic.20200530.030942 [2,380 B]
+Fetched 398 kB in 5s (73.2 kB/s)                      
+Selecting previously unselected package ros-melodic-roscpp-tutorials.
+(Reading database ... 293678 files and directories currently installed.)
+Preparing to unpack .../ros-melodic-roscpp-tutorials_0.9.2-1bionic.20200530.015711_amd64.deb ...
+Unpacking ros-melodic-roscpp-tutorials (0.9.2-1bionic.20200530.015711) ...
+Selecting previously unselected package ros-melodic-rospy-tutorials.
+Preparing to unpack .../ros-melodic-rospy-tutorials_0.9.2-1bionic.20200530.025151_amd64.deb ...
+Unpacking ros-melodic-rospy-tutorials (0.9.2-1bionic.20200530.025151) ...
+Selecting previously unselected package ros-melodic-turtlesim.
+Preparing to unpack .../ros-melodic-turtlesim_0.9.2-1bionic.20200530.020039_amd64.deb ...
+Unpacking ros-melodic-turtlesim (0.9.2-1bionic.20200530.020039) ...
+Selecting previously unselected package ros-melodic-ros-tutorials.
+Preparing to unpack .../ros-melodic-ros-tutorials_0.9.2-1bionic.20200530.030942_amd64.deb ...
+Unpacking ros-melodic-ros-tutorials (0.9.2-1bionic.20200530.030942) ...
+Setting up ros-melodic-roscpp-tutorials (0.9.2-1bionic.20200530.015711) ...
+Setting up ros-melodic-rospy-tutorials (0.9.2-1bionic.20200530.025151) ...
+Setting up ros-melodic-turtlesim (0.9.2-1bionic.20200530.020039) ...
+Setting up ros-melodic-ros-tutorials (0.9.2-1bionic.20200530.030942) ...
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones$ 
+
+```
+#
+#
+> Quick Overview of Filesystem Concepts
+
+- Packages: Packages are the software organization unit of ROS code. Each package can contain libraries, executables, scripts, or other artifacts.   
+- Manifests (package.xml): A manifest is a description of a package. It serves to define dependencies between packages and to capture meta information about the package like version, maintainer, license, etc...    
+
+#
+#
+```
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones$ 
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones$ cd ~/catkin_ws
+(base) dhankar@dhankar-1:~/catkin_ws$ ls -ltr
+total 12
+drwxr-xr-x 2 dhankar dhankar 4096 Jul 21 20:10 src
+drwxr-xr-x 3 dhankar dhankar 4096 Jul 21 20:10 devel
+drwxr-xr-x 8 dhankar dhankar 4096 Jul 21 20:10 build
+(base) dhankar@dhankar-1:~/catkin_ws$ 
+(base) dhankar@dhankar-1:~/catkin_ws$ cd src
+(base) dhankar@dhankar-1:~/catkin_ws/src$ 
+(base) dhankar@dhankar-1:~/catkin_ws/src$ ls -ltr
+total 0
+lrwxrwxrwx 1 dhankar dhankar 50 Jul 21 20:10 CMakeLists.txt -> /opt/ros/melodic/share/catkin/cmake/toplevel.cmake
+(base) dhankar@dhankar-1:~/catkin_ws/src$ 
+(base) dhankar@dhankar-1:~/catkin_ws/src$ catkin_create_pkg my_first_package rospy
+Created file my_first_package/CMakeLists.txt
+Created file my_first_package/package.xml
+Created folder my_first_package/src
+Successfully created files in /home/dhankar/catkin_ws/src/my_first_package. Please adjust the values in package.xml.
+(base) dhankar@dhankar-1:~/catkin_ws/src$ 
+(base) dhankar@dhankar-1:~/catkin_ws/src$ ls -ltr
+total 4
+lrwxrwxrwx 1 dhankar dhankar   50 Jul 21 20:10 CMakeLists.txt -> /opt/ros/melodic/share/catkin/cmake/toplevel.cmake
+drwxr-xr-x 3 dhankar dhankar 4096 Jul 21 21:30 my_first_package
+(base) dhankar@dhankar-1:~/catkin_ws/src$ 
+(base) dhankar@dhankar-1:~/catkin_ws/src$ cd my_first_package/
+(base) dhankar@dhankar-1:~/catkin_ws/src/my_first_package$ 
+(base) dhankar@dhankar-1:~/catkin_ws/src/my_first_package$ ls -ltr
+total 16
+drwxr-xr-x 2 dhankar dhankar 4096 Jul 21 21:30 src
+-rw-r--r-- 1 dhankar dhankar 2635 Jul 21 21:30 package.xml
+-rw-r--r-- 1 dhankar dhankar 7098 Jul 21 21:30 CMakeLists.txt
+(base) dhankar@dhankar-1:~/catkin_ws/src/my_first_package$ 
+(base) dhankar@dhankar-1:~/catkin_ws/src/my_first_package$ 
+
+```
+#
+#
+```
+```
+#
+#
 
 
 </br>
