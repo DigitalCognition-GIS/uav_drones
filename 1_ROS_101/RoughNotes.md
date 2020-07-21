@@ -1702,7 +1702,8 @@ Setting up ros-melodic-ros-tutorials (0.9.2-1bionic.20200530.030942) ...
 - Manifests (package.xml): A manifest is a description of a package. It serves to define dependencies between packages and to capture meta information about the package like version, maintainer, license, etc...    
 
 #
-#
+#### Create a PACKAGE within DIR == catkin_ws -- catkin_create_pkg my_first_package rospy
+
 ```
 (base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones$ 
 (base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones$ cd ~/catkin_ws
@@ -1741,23 +1742,278 @@ drwxr-xr-x 2 dhankar dhankar 4096 Jul 21 21:30 src
 
 ```
 #
+#### The .xml file - package.xml- created for the sample - my_first_package
 #
 ```
+<?xml version="1.0"?>
+<package format="2">
+  <name>my_first_package</name>
+  <version>0.0.0</version>
+  <description>The my_first_package package</description>
+
+  <!-- One maintainer tag required, multiple allowed, one person per tag -->
+  <!-- Example:  -->
+  <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
+  <maintainer email="dhankar.rohit@gmail.com">dhankar</maintainer>
+
+
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <!-- Commonly used license strings: -->
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+  <license>MIT</license>
+
+
+  <!-- Url tags are optional, but multiple are allowed, one per tag -->
+  <!-- Optional attribute type can be: website, bugtracker, or repository -->
+  <!-- Example: -->
+  <!-- <url type="website">http://wiki.ros.org/my_first_package</url> -->
+
+
+  <!-- Author tags are optional, multiple are allowed, one per tag -->
+  <!-- Authors do not have to be maintainers, but could be -->
+  <!-- Example: -->
+  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
+
+
+  <!-- The *depend tags are used to specify dependencies -->
+  <!-- Dependencies can be catkin packages or system dependencies -->
+  <!-- Examples: -->
+  <!-- Use depend as a shortcut for packages that are both build and exec dependencies -->
+  <!--   <depend>roscpp</depend> -->
+  <!--   Note that this is equivalent to the following: -->
+  <!--   <build_depend>roscpp</build_depend> -->
+  <!--   <exec_depend>roscpp</exec_depend> -->
+  <!-- Use build_depend for packages you need at compile time: -->
+  <!--   <build_depend>message_generation</build_depend> -->
+  <!-- Use build_export_depend for packages you need in order to build against this package: -->
+  <!--   <build_export_depend>message_generation</build_export_depend> -->
+  <!-- Use buildtool_depend for build tool packages: -->
+  <!--   <buildtool_depend>catkin</buildtool_depend> -->
+  <!-- Use exec_depend for packages you need at runtime: -->
+  <!--   <exec_depend>message_runtime</exec_depend> -->
+  <!-- Use test_depend for packages you need only for testing: -->
+  <!--   <test_depend>gtest</test_depend> -->
+  <!-- Use doc_depend for packages you need only for building documentation: -->
+  <!--   <doc_depend>doxygen</doc_depend> -->
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
 ```
 #
 #
 
+```
+(base) dhankar@dhankar-1:/opt/ros/melodic$ 
+(base) dhankar@dhankar-1:/opt/ros/melodic$ ls -ltr
+total 64
+-rw-r--r--  1 root root   270 May 30 02:11 setup.zsh
+-rwxr-xr-x  1 root root 13310 May 30 02:11 _setup_util.py
+-rw-r--r--  1 root root  2774 May 30 02:11 setup.sh
+-rw-r--r--  1 root root   260 May 30 02:11 setup.bash
+-rw-r--r--  1 root root   293 May 30 02:11 local_setup.zsh
+-rw-r--r--  1 root root   347 May 30 02:11 local_setup.sh
+-rw-r--r--  1 root root   283 May 30 02:11 local_setup.bash
+-rwxr-xr-x  1 root root   506 May 30 02:11 env.sh
+drwxr-xr-x  4 root root  4096 Jul 21 18:40 etc
+drwxr-xr-x  2 root root  4096 Jul 21 18:41 bin
+drwxr-xr-x 37 root root  4096 Jul 21 20:47 include
+drwxr-xr-x 25 root root  4096 Jul 21 20:47 lib
+drwxr-xr-x 87 root root  4096 Jul 21 20:47 share
+(base) dhankar@dhankar-1:/opt/ros/melodic$ 
+(base) dhankar@dhankar-1:/opt/ros/melodic$ cd share
+(base) dhankar@dhankar-1:/opt/ros/melodic/share$ 
+(base) dhankar@dhankar-1:/opt/ros/melodic/share$ ls -ltr
+total 340
+drwxr-xr-x  3 root root 4096 Jul 21 18:40 cpp_common
+drwxr-xr-x  4 root root 4096 Jul 21 18:40 catkin
+drwxr-xr-x  3 root root 4096 Jul 21 18:40 genmsg
+drwxr-xr-x  3 root root 4096 Jul 21 18:40 genpy
+drwxr-xr-x  3 root root 4096 Jul 21 18:40 rostime
+drwxr-xr-x  3 root root 4096 Jul 21 18:40 roscpp_traits
+drwxr-xr-x  3 root root 4096 Jul 21 18:40 roscpp_serialization
+drwxr-xr-x  3 root root 4096 Jul 21 18:40 message_runtime
+drwxr-xr-x  4 root root 4096 Jul 21 18:40 std_msgs
+drwxr-xr-x  4 root root 4096 Jul 21 18:40 bond
+drwxr-xr-x  3 root root 4096 Jul 21 18:40 gencpp
+drwxr-xr-x  3 root root 4096 Jul 21 18:40 roseus
+drwxr-xr-x  3 root root 4096 Jul 21 18:40 geneus
+drwxr-xr-x  3 root root 4096 Jul 21 18:40 genlisp
+drwxr-xr-x  3 root root 4096 Jul 21 18:40 common-lisp
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 gennodejs
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 message_generation
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 rosbuild
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rosconsole
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 rosgraph_msgs
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 xmlrpcpp
+drwxr-xr-x  6 root root 4096 Jul 21 18:41 roscpp
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 smclib
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 bondcpp
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 rosgraph
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 ros_environment
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rospack
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 roslib
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 rospy
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 bondpy
+drwxr-xr-x  2 root root 4096 Jul 21 18:41 bond_core
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 class_loader
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 pluginlib
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 roslz4
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rosbag_storage
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 std_srvs
+drwxr-xr-x  5 root root 4096 Jul 21 18:41 topic_tools
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rosbag
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rosmsg
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rosservice
+drwxr-xr-x  6 root root 4096 Jul 21 18:41 dynamic_reconfigure
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 message_filters
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 mk
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 rosbash
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rosboost_cfg
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rosclean
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 roscreate
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 roslang
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rosmake
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 rosunit
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 ros
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rosmaster
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rosout
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rosparam
+drwxr-xr-x  6 root root 4096 Jul 21 18:41 roslaunch
+drwxr-xr-x 12 root root 4096 Jul 21 18:41 roslisp
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rostopic
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rosnode
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 rostest
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 roswtf
+drwxr-xr-x  2 root root 4096 Jul 21 18:41 ros_comm
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 actionlib_msgs
+drwxr-xr-x  5 root root 4096 Jul 21 18:41 actionlib
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 cmake_modules
+drwxr-xr-x  5 root root 4096 Jul 21 18:41 diagnostic_msgs
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 geometry_msgs
+drwxr-xr-x  6 root root 4096 Jul 21 18:41 nav_msgs
+drwxr-xr-x  6 root root 4096 Jul 21 18:41 sensor_msgs
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 shape_msgs
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 stereo_msgs
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rosbag_migration_rule
+drwxr-xr-x  5 root root 4096 Jul 21 18:41 trajectory_msgs
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 visualization_msgs
+drwxr-xr-x  2 root root 4096 Jul 21 18:41 common_msgs
+drwxr-xr-x  4 root root 4096 Jul 21 18:41 nodelet
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 nodelet_topic_tools
+drwxr-xr-x  2 root root 4096 Jul 21 18:41 nodelet_core
+drwxr-xr-x  3 root root 4096 Jul 21 18:41 rosconsole_bridge
+drwxr-xr-x  2 root root 4096 Jul 21 18:41 roscpp_core
+drwxr-xr-x  2 root root 4096 Jul 21 18:41 ros_core
+drwxr-xr-x  2 root root 4096 Jul 21 18:41 ros_base
+drwxr-xr-x  5 root root 4096 Jul 21 20:47 roscpp_tutorials
+drwxr-xr-x 14 root root 4096 Jul 21 20:47 rospy_tutorials
+drwxr-xr-x  6 root root 4096 Jul 21 20:47 turtlesim
+drwxr-xr-x  2 root root 4096 Jul 21 20:47 ros_tutorials
+(base) dhankar@dhankar-1:/opt/ros/melodic/share$ 
+(base) dhankar@dhankar-1:/opt/ros/melodic/share$ cd ros_tutorials
+(base) dhankar@dhankar-1:/opt/ros/melodic/share/ros_tutorials$ 
+(base) dhankar@dhankar-1:/opt/ros/melodic/share/ros_tutorials$ ls -ltr
+total 4
+-rw-r--r-- 1 root root 864 Feb 26 23:57 package.xml
+(base) dhankar@dhankar-1:/opt/ros/melodic/share/ros_tutorials$ 
+
+```
+#
+#### Seems depending on the location of the DIR where the command -- rosversion is RUN ... it responds correctly 
+```
+(base) dhankar@dhankar-1:~/catkin_ws/src/my_first_package$ 
+(base) dhankar@dhankar-1:~/catkin_ws/src/my_first_package$ rosversion -d
+melodic
+(base) dhankar@dhankar-1:~/catkin_ws/src/my_first_package$ rosversion roscpp
+1.14.6
+(base) dhankar@dhankar-1:~/catkin_ws/src/my_first_package$ 
+```
+#
+#### Seems depending on the location of the DIR where the command -- rosversion is RUN ... it responds correctly 
+```
+(base) dhankar@dhankar-1:/opt/ros/melodic/share/ros_tutorials$ 
+(base) dhankar@dhankar-1:/opt/ros/melodic/share/ros_tutorials$ rosversion -d
+<unknown>
+(base) dhankar@dhankar-1:/opt/ros/melodic/share/ros_tutorials$ 
+(base) dhankar@dhankar-1:/opt/ros/melodic/share/ros_tutorials$ rosversion roscpp
+Cannot locate [roscpp]
+(base) dhankar@dhankar-1:/opt/ros/melodic/share/ros_tutorials$ 
+
+```
+#
+#### roscore -- started roslaunch server http://dhankar-1:46715/
+#
+```
+(base) dhankar@dhankar-1:~/catkin_ws/src/my_first_package$ 
+(base) dhankar@dhankar-1:~/catkin_ws/src/my_first_package$ roscore
+... logging to /home/dhankar/.ros/log/203fcb6a-cb71-11ea-bd46-b42e993f173e/roslaunch-dhankar-1-1734.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://dhankar-1:46715/
+ros_comm version 1.14.6
+
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: melodic
+ * /rosversion: 1.14.6
+
+NODES
+
+auto-starting new master
+process[master]: started with pid [1770]
+ROS_MASTER_URI=http://dhankar-1:11311/
+
+setting /run_id to 203fcb6a-cb71-11ea-bd46-b42e993f173e
+process[rosout-1]: started with pid [1781]
+started core service [/rosout]
+
+```
+#
+#
+```
+(base) dhankar@dhankar-1:/opt/ros/melodic/share/ros_tutorials$ source /opt/ros/melodic/setup.bash
+(base) dhankar@dhankar-1:/opt/ros/melodic/share/ros_tutorials$ 
+(base) dhankar@dhankar-1:/opt/ros/melodic/share/ros_tutorials$ rosrun rospy_tutorials talker
+[INFO] [1595349946.948145]: hello world 1595349946.95
+[INFO] [1595349947.048349]: hello world 1595349947.05
+[INFO] [1595349947.148371]: hello world 1595349947.15
+[INFO] [1595349947.248369]: hello world 1595349947.25
+[INFO] [1595349947.348388]: hello world 1595349947.35
+[INFO] [1595349947.448342]: hello world 1595349947.45
+[INFO] [1595349947.548364]: hello world 1595349947.55
+[INFO] [1595349947.648388]: hello world 1595349947.65
+[INFO] [1595349947.748392]: hello world 1595349947.75
+
+```
+#
+#
+```
+
+```
+#
+#
 
 </br>
 
 - source /opt/ros/melodic/setup.bash
 
 
-- source /opt/ros/melodic/setup.bash
-
-
-- source /opt/ros/melodic/setup.bash
 
 </br>
+
 
 
