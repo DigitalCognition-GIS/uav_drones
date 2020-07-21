@@ -1483,6 +1483,135 @@ drwxr-xr-x 83 root root  4096 Jul 21 18:41 share
 ```
 source /opt/ros/melodic/setup.bash
 ```
+#### FOOBAR_Error below --- cant create the CATKIN DIR -- catkin_ws --- within the Current Working DIR , as then the command -- catkin_make .. will fail ... 
+
+```
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones$ ls 
+1_ROS_101  README.md  Reads_PDFs_mostly  Reads_WebPages_etc  ROUGH_README.md  ScreenCaptures
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones$ cd 1_ROS_101/
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101$ 
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101$ mkdir -p ./catkin_ws/src
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101$ ls
+catkin_ws  RoughNotes.md
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101$ cd catkin_ws/
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101/catkin_ws$ catkin_make
+
+Command 'catkin_make' not found, but can be installed with:
+
+sudo apt install catkin
+
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101/catkin_ws$ sudo apt install catkin
+[sudo] password for dhankar: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ catkin : Depends: python-catkin-pkg but it is not going to be installed
+E: Unable to correct problems, you have held broken packages.
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101/catkin_ws$ 
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101/catkin_ws$ source /opt/ros/melodic/setup.bash
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101/catkin_ws$ 
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101/catkin_ws$ sudo apt install catkin
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ catkin : Depends: python-catkin-pkg but it is not going to be installed
+E: Unable to correct problems, you have held broken packages.
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101/catkin_ws$ 
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101/catkin_ws$ 
+```
+
+#### Thus following the tutorial --- made the CATKIN DIR within the HOME DIR 
+
+```
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101/catkin_ws$ 
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101/catkin_ws$ mkdir -p ~/catkin_ws/src
+(base) dhankar@dhankar-1:~/_dc_all/uav/uav_drones/1_ROS_101/catkin_ws$ cd ~/catkin_ws/
+(base) dhankar@dhankar-1:~/catkin_ws$ ls -ltr
+total 4
+drwxr-xr-x 2 dhankar dhankar 4096 Jul 21 20:09 src
+(base) dhankar@dhankar-1:~/catkin_ws$ 
+(base) dhankar@dhankar-1:~/catkin_ws$ catkin_make
+Base path: /home/dhankar/catkin_ws
+Source space: /home/dhankar/catkin_ws/src
+Build space: /home/dhankar/catkin_ws/build
+Devel space: /home/dhankar/catkin_ws/devel
+Install space: /home/dhankar/catkin_ws/install
+Creating symlink "/home/dhankar/catkin_ws/src/CMakeLists.txt" pointing to "/opt/ros/melodic/share/catkin/cmake/toplevel.cmake"
+####
+#### Running command: "cmake /home/dhankar/catkin_ws/src -DCATKIN_DEVEL_PREFIX=/home/dhankar/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/dhankar/catkin_ws/install -G Unix Makefiles" in "/home/dhankar/catkin_ws/build"
+####
+-- The C compiler identification is GNU 7.5.0
+-- The CXX compiler identification is GNU 7.5.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using CATKIN_DEVEL_PREFIX: /home/dhankar/catkin_ws/devel
+-- Using CMAKE_PREFIX_PATH: /opt/ros/melodic
+-- This workspace overlays: /opt/ros/melodic
+-- Found PythonInterp: /usr/bin/python2 (found suitable version "2.7.17", minimum required is "2") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python2
+-- Using Debian Python package layout
+-- Using empy: /usr/bin/empy
+-- Using CATKIN_ENABLE_TESTING: ON
+-- Call enable_testing()
+-- Using CATKIN_TEST_RESULTS_DIR: /home/dhankar/catkin_ws/build/test_results
+-- Found gtest sources under '/usr/src/googletest': gtests will be built
+-- Found gmock sources under '/usr/src/googletest': gmock will be built
+-- Found PythonInterp: /usr/bin/python2 (found version "2.7.17") 
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Using Python nosetests: /usr/bin/nosetests-2.7
+-- catkin 0.7.26
+-- BUILD_SHARED_LIBS is on
+-- BUILD_SHARED_LIBS is on
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dhankar/catkin_ws/build
+####
+#### Running command: "make -j8 -l8" in "/home/dhankar/catkin_ws/build"
+####
+(base) dhankar@dhankar-1:~/catkin_ws$ 
+(base) dhankar@dhankar-1:~/catkin_ws$ ls -ltr
+total 12
+drwxr-xr-x 2 dhankar dhankar 4096 Jul 21 20:10 src
+drwxr-xr-x 3 dhankar dhankar 4096 Jul 21 20:10 devel
+drwxr-xr-x 8 dhankar dhankar 4096 Jul 21 20:10 build
+(base) dhankar@dhankar-1:~/catkin_ws$ 
+(base) dhankar@dhankar-1:~/catkin_ws$ 
+
+
+```
+
 
 </br>
 
